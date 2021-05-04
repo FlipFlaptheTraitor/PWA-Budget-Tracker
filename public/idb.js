@@ -7,10 +7,10 @@ request.onupgradeneeded = function(event) {
 };
 
 request.onsuccess = function(event) {
-  // when db is successfully created with its object store (from onupgradedneeded event above), save reference to db in global variable
+
   db = event.target.result;
 
-  // check if app is online, if yes run checkDatabase() function to send all local db data to api
+ 
   if (navigator.onLine) {
     checkDatabase();
   }
@@ -30,15 +30,13 @@ function saveRecord(record) {
 
 
 function checkDatabase() {
-  // open a transaction on your pending db
   const transaction = db.transaction(["pending"], "readwrite");
   // access your pending object store
   const store = transaction.objectStore("pending");
-  // get all records from store and set to a variable
   const getAll = store.getAll();
 
   getAll.onsuccess = function() {
-    // if there was data in indexedDb's store, let's send it to the api server
+  
     if (getAll.result.length > 0) {
       fetch("/api/transaction/bulk", {
         method: 'POST',
