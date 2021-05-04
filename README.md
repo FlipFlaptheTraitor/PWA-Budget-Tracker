@@ -18,7 +18,7 @@ This program was designed to use a pre-written Budget Tracking app to all it to 
     to run the program the required dependenses must be installed by running the npm install command. Also MONGODB must be running.
   
   ## Usage 
-    Live Deployment link can be found at the following link:
+    Live Deployment link can be found at the following link: https://polar-cove-57902.herokuapp.com/
   ## Credits
 
   ## License
